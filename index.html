@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sahez Birthday 🎂❤️</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+html,body{
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:"Trebuchet MS",Arial,sans-serif;
+    text-align:center;
+    color:#333;
+    min-height:100vh;
+    overflow-x:hidden;
+
+    background:
+    radial-gradient(circle at 15% 20%,#fff6b7 0 4%,transparent 5%),
+    radial-gradient(circle at 85% 15%,#ffd6e7 0 5%,transparent 6%),
+    linear-gradient(135deg,#ffd6e8,#dce8ff,#ffe9c7);
+
+    background-size:200% 200%;
+    animation:bgMove 10s ease infinite;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.page{
+    display:none;
+    min-height:100vh;
+    padding:35px 20px;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    position:relative;
+    z-index:5;
+}
+
+.page.active{
+    display:flex;
+}
+
+h1{
+    font-size:clamp(30px,8vw,55px);
+    margin:12px 0;
+    text-shadow:2px 2px white,0 5px 15px #0002;
+}
+
+h2{
+    font-size:clamp(23px,6vw,38px);
+}
+
+p{
+    max-width:700px;
+    font-size:20px;
+    line-height:1.7;
+}
+
+button{
+    border:0;
+    padding:15px 30px;
+    margin:10px;
+    border-radius:40px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    background:white;
+    box-shadow:0 8px 20px #0003;
+    transition:.25s;
+}
+
+button:hover{
+    transform:scale(1.08);
+}
+
+.next{
+    background:linear-gradient(135deg,#ff4f91,#ff79ad);
+    color:white;
+}
+
+/* PHOTO */
+.photo{
+    width:270px;
+    max-width:80vw;
+    border-radius:25px;
+    border:7px solid white;
+    box-shadow:0 15px 35px #0005;
+    animation:photoPop 1s ease;
+}
+
+@keyframes photoPop{
+    0%{
+        transform:scale(.3) rotate(-10deg);
+        opacity:0;
+    }
+    70%{
+        transform:scale(1.1) rotate(3deg);
+    }
+    100%{
+        transform:scale(1) rotate(0);
+        opacity:1;
+    }
+}
+
+/* GIFTS */
+.gifts{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:25px;
+    flex-wrap:wrap;
+    margin:25px 0;
+}
+
+.gift{
+    width:130px;
+    height:130px;
+    background:white;
+    border-radius:25px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:70px;
+    cursor:pointer;
+    box-shadow:0 12px 25px #0004;
+    transition:.3s;
+}
+
+.gift:hover{
+    transform:translateY(-12px) rotate(6deg) scale(1.05);
+}
+
+#giftMessage{
+    min-height:70px;
+    font-size:22px;
+    font-weight:bold;
+}
+
+/* CAKE */
+.cake{
+    font-size:110px;
+    animation:cakeBounce 1s infinite alternate;
+}
+
+@keyframes cakeBounce{
+    from{transform:translateY(0)}
+    to{transform:translateY(-18px)}
+}
+
+/* KRISHNA */
+.krishna{
+    font-size:65px;
+    animation:float 2s ease-in-out infinite alternate;
+}
+
+@keyframes float{
+    from{transform:translateY(0)}
+    to{transform:translateY(-10px)}
+}
+
+/* HEARTS */
+.heart{
+    position:fixed;
+    bottom:-50px;
+    font-size:25px;
+    pointer-events:none;
+    z-index:1;
+    animation:heartFloat 6s linear forwards;
+}
+
+@keyframes heartFloat{
+    0%{
+        transform:translateY(0) rotate(0);
+        opacity:0;
+    }
+    15%{opacity:1}
+    100%{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* SPARKLES */
+.sparkle{
+    position:fixed;
+    pointer-events:none;
+    z-index:1;
+    font-size:20px;
+    animation:sparkleAnim 2s ease-out forwards;
+}
+
+@keyframes sparkleAnim{
+    0%{
+        transform:scale(.2);
+        opacity:0;
+    }
+    50%{
+        transform:scale(1.4);
+        opacity:1;
+    }
+    100%{
+        transform:scale(.2);
+        opacity:0;
+    }
+}
+
+/* FIREWORKS */
+.firework{
+    position:fixed;
+    pointer-events:none;
+    z-index:10;
+    font-size:35px;
+    animation:fireworkBurst 1.4s ease-out forwards;
+}
+
+@keyframes fireworkBurst{
+    0%{
+        transform:scale(.2);
+        opacity:1;
+    }
+    60%{
+        transform:scale(2);
+        opacity:1;
+    }
+    100%{
+        transform:scale(3.5);
+        opacity:0;
+    }
+}
+
+/* PARTY */
+.partyArea{
+    position:relative;
+    width:100%;
+    min-height:220px;
+}
+
+#noBtn{
+    position:relative;
+}
+
+/* CONFETTI */
+.confetti{
+    position:fixed;
+    top:-30px;
+    font-size:25px;
+    pointer-events:none;
+    z-index:20;
+    animation:fall 3s linear forwards;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(720deg);
+        opacity:0;
+    }
+}
+
+@media(max-width:600px){
+    p{
+        font-size:18px;
+    }
+
+    .gift{
+        width:100px;
+        height:100px;
+        font-size:55px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- PAGE 1 -->
+
+<section class="page active" id="page1">
+
+    <div class="krishna">🦚💙🙏</div>
+
+    <h1>🎂 Happy Birthday Sahez 🎂</h1>
+
+    <p>
+        Happy Birthday Sahez! ❤️🥳
+        <br><br>
+
+        Bhagwan Krishna tumhe hamesha
+        khush rakhein aur tumhari saari
+        wishes poori ho.
+        <br><br>
+
+        Aaj ka din tumhare liye
+        bahut special hai! ✨
+    </p>
+
+    <button class="next" onclick="nextPage(2)">
+        Aage Dekh 👀
+    </button>
+
+</section>
+
+
+<!-- PAGE 2 -->
+
+<section class="page" id="page2">
+
+    <h1>😇 Ek Baat Bolu?</h1>
+
+    <p>
+        Aaj maine socha tha tumhe
+        ekdum sweet birthday wish karunga... ❤️
+        <br><br>
+        Lekin...
+    </p>
+
+    <button class="next" onclick="nextPage(3)">
+        Lekin Kya? 😭
+    </button>
+
+</section>
+
+
+<!-- PAGE 3 -->
+
+<section class="page" id="page3">
+
+    <h1>😂 SORRY!</h1>
+
+    <p>
+        Birthday tera hai...
+        <br><br>
+
+        <b>Par trolling bhi toh zaroori hai! 🤣🤣</b>
+
+        <br><br>
+
+        😈 <b>SAHEZ KO PARESHAN KARNA START!</b> 😈
+    </p>
+
+    <button class="next" onclick="nextPage(4)">
+        Troll Start Karo 😈
+    </button>
+
+</section>
+
+
+<!-- PAGE 4 -->
+
+<section class="page" id="page4">
+
+    <h1>🤣 OYEEE SAHEZ!</h1>
+
+    <p id="trollText">
+        Itna attitude kis baat ka hai madam? 😂
+    </p>
+
+    <button onclick="changeTroll()">
+        Aur Chidhana 😈
+    </button>
+
+    <button class="next" onclick="nextPage(5)">
+        Aage Chalo 🎁
+    </button>
+
+</section>
+
+
+<!-- PAGE 5 GIFTS -->
+
+<section class="page" id="page5">
+
+    <h1>🎁 3 Gifts Hain Tere Liye 🎁</h1>
+
+    <p>
+        Inmein se <b>kisi ek mein pakka surprise hai!</b>
+        <br>
+        Soch samajh ke kholna... 👀😂
+    </p>
+
+    <div class="gifts">
+
+        <div class="gift" onclick="openGift(1)">
+            🎁
+        </div>
+
+        <div class="gift" onclick="openGift(2)">
+            🎁
+        </div>
+
+        <div class="gift" onclick="openGift(3)">
+            🎁
+        </div>
+
+    </div>
+
+    <div id="giftMessage"></div>
+
+</section>
+
+
+<!-- PAGE 6 PHOTO -->
+
+<section class="page" id="page6">
+
+    <h1>🎉 SURPRISEEEEE! 🎉</h1>
+
+    <img
+        src="sahez.jpg"
+        class="photo"
+        alt="Sahez"
+    >
+
+    <h2>
+        😂 Yeh dekhooo, ek bandariya aa gayi! 🐒❤️
+    </h2>
+
+    <p>
+        Happy Birthday Sahez! 🎂❤️
+        <br><br>
+        Photo toh lagani hi thi 😂
+    </p>
+
+    <button class="next" onclick="nextPage(7)">
+        Ek Aur Surprise 👀
+    </button>
+
+</section>
+
+
+<!-- PAGE 7 -->
+
+<section class="page" id="page7">
+
+    <div class="krishna">👀🎁</div>
+
+    <h1>RUKKKKK...</h1>
+
+    <p>
+        Abhi khatam nahi hua! 😈
+        <br><br>
+        <b>Ek aur surprise hai tere liye.</b>
+    </p>
+
+    <button class="next" onclick="nextPage(8)">
+        Surprise Khol 🎁
+    </button>
+
+</section>
+
+
+<!-- PAGE 8 CAKE -->
+
+<section class="page" id="page8">
+
+    <div class="cake">🎂</div>
+
+    <h1>😂 LE CHOTI!</h1>
+
+    <p>
+        Cake kha le 😂😂
+        <br><br>
+        Itna sab kar diya tere birthday pe...
+        <br>
+        Ab cake toh banta hai! 🎂❤️
+    </p>
+
+    <button class="next" onclick="nextPage(9)">
+        Cake Kha Liya 😭
+    </button>
+
+</section>
+
+
+<!-- PAGE 9 PARTY -->
+
+<section class="page" id="page9">
+
+    <h1>😏 AB EK LAST BAAT...</h1>
+
+    <p>
+        Maine itna sab diya...
+        <br><br>
+
+        <b>
+            Ab tu bhi mujhe party degi ya nahi? 🍕🎂
+        </b>
+    </p>
+
+    <div class="partyArea">
+
+        <button onclick="partyYes()">
+            YES 😎
+        </button>
+
+        <button id="noBtn" onclick="partyNo()">
+            NO 😏
+        </button>
+
+    </div>
+
+    <p id="partyMessage"></p>
+
+</section>
+
+
+<!-- PAGE 10 -->
+
+<section class="page" id="page10">
+
+    <div class="krishna">🤣🎉</div>
+
+    <h1>KHIKHIKHIKHI 🤣🤣</h1>
+
+    <p>
+        <b>Mujhe pata tha tu YES karegi!</b>
+        😂😂
+
+        <br><br>
+
+        Ab party ke liye ready rehna... 👀🍕🎂
+    </p>
+
+    <button class="next" onclick="nextPage(11)">
+        Last Wala Dekh ❤️
+    </button>
+
+</section>
+
+
+<!-- PAGE 11 FINAL ROAST -->
+
+<section class="page" id="page11">
+
+    <div class="krishna">
+        🦚💙🙏
+    </div>
+
+    <h1>
+        🎂 HAPPY BIRTHDAY SAEHEZ 🎂
+    </h1>
+
+    <img
+        src="sahez.jpg"
+        class="photo"
+        alt="Sahez"
+    >
+
+    <p>
+        Once again...
+        <br>
+
+        <b>HAPPY BIRTHDAY! ❤️🥳</b>
+    </p>
+
+    <h2>
+        🌸 Janmashtami ki Hardik Shubhkamnayein 🌸
+    </h2>
+
+    <h2>
+        🙏 Jai Shree Krishna 🙏
+    </h2>
+
+    <button class="next" onclick="nextPage(12)">
+        Ekdum Last Roast 😂
+    </button>
+
+</section>
+
+
+<!-- PAGE 12 MONKEY -->
+
+<section class="page" id="page12">
+
+    <h1>
+        🤣🤣 EK AUR CHEEZ!
+    </h1>
+
+    <p>
+        Sahez ke liye special comparison nahi...
+        <br>
+        <b>Bas ek random bandar mil gaya 😂🐒</b>
+    </p>
+
+    <img
+        src="monkey.jpg"
+        class="photo"
+        alt="Funny Monkey"
+    >
+
+    <h2>
+        😂 Yeh dekho, kya scene hai!
+    </h2>
+
+    <p>
+        Batao... itna cute kaise ho sakta hai? 🤣🐒
+    </p>
+
+    <h2>
+        ❤️ HAPPY BIRTHDAY ONCE AGAIN SAEHEZ ❤️
+    </h2>
+
+    <div class="krishna">
+        🦚💙🙏
+    </div>
+
+</section>
+
+
+<script>
+
+/* =========================
+   PAGE SYSTEM
+========================= */
+
+let currentPage = 1;
+
+function nextPage(number){
+
+    document
+        .getElementById("page" + currentPage)
+        .classList.remove("active");
+
+    document
+        .getElementById("page" + number)
+        .classList.add("active");
+
+    currentPage = number;
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+    if(
+        number === 6 ||
+        number === 10 ||
+        number === 11 ||
+        number === 12
+    ){
+        startFireworks();
+    }
+}
+
+
+/* =========================
+   TROLL
+========================= */
+
+const trollMessages = [
+
+    "Areeee Sahez 😂 itna attitude kis baat ka?",
+
+    "Birthday tera hai, par pareshan main karunga 🤣",
+
+    "Aaj tumhara special day hai... isliye special trolling milegi 😈",
+
+    "Itni jaldi irritate ho gayi? Abhi toh shuru kiya hai 😂",
+
+    "Ohooo madam birthday girl ban gayi 😭😂",
+
+    "Aaj ke din bhi bach nahi payegi 🤣",
+
+    "Bas bas... ab zyada khush mat ho jana 😂",
+
+    "Tera birthday hai, meri comedy ka nahi 😭🤣"
+
+];
+
+let trollIndex = 0;
+
+function changeTroll(){
+
+    trollIndex++;
+
+    if(trollIndex >= trollMessages.length){
+        trollIndex = 0;
+    }
+
+    document.getElementById("trollText").innerText =
+        trollMessages[trollIndex];
+}
+
+
+/* =========================
+   GIFTS
+========================= */
+
+let giftOpened = false;
+
+function openGift(number){
+
+    if(giftOpened){
+        return;
+    }
+
+    const message =
+        document.getElementById("giftMessage");
+
+    /* Gift 3 = correct */
+
+    if(number === 3){
+
+        giftOpened = true;
+
+        message.innerHTML =
+            "🎉 AREYYYY! SURPRISE MIL GAYA! 🎉";
+
+        setTimeout(function(){
+            nextPage(6);
+        },1200);
+
+    }
+
+    else{
+
+        const wrongMessages = [
+
+            "Areeee 😂 galat gift khol diya!",
+
+            "Ohooo 😭 itni jaldi haar maan gayi?",
+
+            "Bauni, thoda dimaag laga 😂",
+
+            "Nahi nahi 😈 ye wala nahi hai!",
+
+            "Ek aur try kar madam 😂",
+
+            "Areeee ye kya kar diya 🤣",
+
+            "Surprise idhar nahi hai 😂"
+
+        ];
+
+        message.innerText =
+            wrongMessages[
+                Math.floor(
+                    Math.random() *
+                    wrongMessages.length
+                )
+            ];
+    }
+}
+
+
+/* =========================
+   PARTY
+========================= */
+
+let noCount = 0;
+
+const noMessages = [
+
+    "Areeee Bauni 😂 mere se chalaki?",
+
+    "Bhai hoon tera, bhool gayi kya? 🤣",
+
+    "NO allowed nahi hai madam 😤",
+
+    "Itni aasani se nahi bachogi 😂",
+
+    "Dobara NO? 😭",
+
+    "YES kar de chupchaap 🤣",
+
+    "Party toh deni padegi 😈🍕",
+
+    "NO button bhi tere se darr raha hai 😂"
+
+];
+
+function partyNo(){
+
+    noCount++;
+
+    const noBtn =
+        document.getElementById("noBtn");
+
+    const message =
+        document.getElementById("partyMessage");
+
+    message.innerText =
+        noMessages[
+            (noCount - 1) %
+            noMessages.length
+        ];
+
+    const x =
+        Math.random() * 240 - 120;
+
+    const y =
+        Math.random() * 150 - 75;
+
+    noBtn.style.transform =
+        "translate(" +
+        x +
+        "px," +
+        y +
+        "px)";
+}
+
+
+function partyYes(){
+
+    nextPage(10);
+
+}
+
+
+/* =========================
+   CONFETTI
+========================= */
+
+function confetti(){
+
+    const emojis = [
+        "🎉",
+        "🎊",
+        "❤️",
+        "✨",
+        "🎂",
+        "🥳",
+        "💖",
+        "🎈"
+    ];
+
+    for(let i=0;i<70;i++){
+
+        const c =
+            document.createElement("div");
+
+        c.className = "confetti";
+
+        c.innerText =
+            emojis[
+                Math.floor(
+                    Math.random() *
+                    emojis.length
+                )
+            ];
+
+        c.style.left =
+            Math.random() * 100 + "vw";
+
+        c.style.animationDuration =
+            (2 + Math.random() * 3) + "s";
+
+        document.body.appendChild(c);
+
+        setTimeout(function(){
+            c.remove();
+        },5000);
+    }
+}
+
+
+/* =========================
+   FIREWORKS
+========================= */
+
+function startFireworks(){
+
+    confetti();
+
+    for(let i=0;i<20;i++){
+
+        setTimeout(function(){
+
+            createFirework();
+
+        },i * 250);
+    }
+}
+
+
+function createFirework(){
+
+    const firework =
+        document.createElement("div");
+
+    firework.className =
+        "firework";
+
+    firework.innerText =
+        "🎆";
+
+    firework.style.left =
+        (5 + Math.random() * 90) + "vw";
+
+    firework.style.top =
+        (5 + Math.random() * 60) + "vh";
+
+    document.body.appendChild(
+        firework
+    );
+
+    setTimeout(function(){
+        firework.remove();
+    },1500);
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+function createHeart(){
+
+    const heart =
+        document.createElement("div");
+
+    heart.className =
+        "heart";
+
+    const hearts = [
+        "❤️",
+        "💖",
+        "💕",
+        "💗",
+        "💓"
+    ];
+
+    heart.innerText =
+        hearts[
+            Math.floor(
+                Math.random() *
+                hearts.length
+            )
+        ];
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.animationDuration =
+        (4 + Math.random() * 4) + "s";
+
+    document.body.appendChild(
+        heart
+    );
+
+    setTimeout(function(){
+        heart.remove();
+    },8000);
+}
+
+setInterval(
+    createHeart,
+    700
+);
+
+
+/* =========================
+   SPARKLES
+========================= */
+
+function createSparkle(){
+
+    const sparkle =
+        document.createElement("div");
+
+    sparkle.className =
+        "sparkle";
+
+    sparkle.innerText =
+        "✨";
+
+    sparkle.style.left =
+        Math.random() * 100 + "vw";
+
+    sparkle.style.top =
+        Math.random() * 100 + "vh";
+
+    document.body.appendChild(
+        sparkle
+    );
+
+    setTimeout(function(){
+        sparkle.remove();
+    },2000);
+}
+
+setInterval(
+    createSparkle,
+    500
+);
+
+</script>
+
+</body>
+</html>
